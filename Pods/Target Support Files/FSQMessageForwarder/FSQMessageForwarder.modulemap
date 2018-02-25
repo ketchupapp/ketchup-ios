@@ -1,0 +1,6 @@
+framework module FSQMessageForwarder {
+  umbrella header "FSQMessageForwarder-umbrella.h"
+
+  export *
+  module * { export * }
+}

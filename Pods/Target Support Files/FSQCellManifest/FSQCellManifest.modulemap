@@ -1,0 +1,6 @@
+framework module FSQCellManifest {
+  umbrella header "FSQCellManifest-umbrella.h"
+
+  export *
+  module * { export * }
+}
