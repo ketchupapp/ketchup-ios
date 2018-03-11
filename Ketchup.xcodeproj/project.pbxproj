@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B69C332B6626423F7AF13C3A /* Pods_Ketchup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2FAD9DEF8506619E5803A9 /* Pods_Ketchup.framework */; };
+		F13896632054B4D800554130 /* LoggedInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13896622054B4D800554130 /* LoggedInUser.swift */; };
+		F18C48A8204383EF00DCAA24 /* Friends.json in Resources */ = {isa = PBXBuildFile; fileRef = F18C48A7204383EF00DCAA24 /* Friends.json */; };
+		F18C48AB204389BA00DCAA24 /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C48AA204389BA00DCAA24 /* URLTransform.swift */; };
 		F1F5A83220436AE1000C6983 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F5A83120436AE1000C6983 /* AppDelegate.swift */; };
 		F1F5A83420436AE1000C6983 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F5A83320436AE1000C6983 /* FriendListViewController.swift */; };
-		F1F5A83720436AE1000C6983 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F5A83520436AE1000C6983 /* Main.storyboard */; };
 		F1F5A83920436AE1000C6983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F5A83820436AE1000C6983 /* Assets.xcassets */; };
 		F1F5A83C20436AE1000C6983 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F5A83A20436AE1000C6983 /* LaunchScreen.storyboard */; };
 		F1F5A84620436CA7000C6983 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F5A84520436CA7000C6983 /* Friend.swift */; };
@@ -20,10 +22,12 @@
 /* Begin PBXFileReference section */
 		6BF95C5328A345C731349CA7 /* Pods-Ketchup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ketchup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ketchup/Pods-Ketchup.debug.xcconfig"; sourceTree = "<group>"; };
 		92F8D31CF5B5CF03D0739B19 /* Pods-Ketchup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ketchup.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ketchup/Pods-Ketchup.release.xcconfig"; sourceTree = "<group>"; };
+		F13896622054B4D800554130 /* LoggedInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInUser.swift; sourceTree = "<group>"; };
+		F18C48A7204383EF00DCAA24 /* Friends.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Friends.json; sourceTree = "<group>"; };
+		F18C48AA204389BA00DCAA24 /* URLTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTransform.swift; sourceTree = "<group>"; };
 		F1F5A82E20436AE1000C6983 /* Ketchup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ketchup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F5A83120436AE1000C6983 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1F5A83320436AE1000C6983 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
-		F1F5A83620436AE1000C6983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1F5A83820436AE1000C6983 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1F5A83B20436AE1000C6983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1F5A83D20436AE1000C6983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +65,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F18C48A6204383D700DCAA24 /* Test Files */ = {
+			isa = PBXGroup;
+			children = (
+				F18C48A7204383EF00DCAA24 /* Friends.json */,
+			);
+			path = "Test Files";
+			sourceTree = "<group>";
+		};
+		F18C48A9204389AD00DCAA24 /* JSONTransforms */ = {
+			isa = PBXGroup;
+			children = (
+				F18C48AA204389BA00DCAA24 /* URLTransform.swift */,
+			);
+			path = JSONTransforms;
+			sourceTree = "<group>";
+		};
 		F1F5A82520436AE1000C6983 = {
 			isa = PBXGroup;
 			children = (
@@ -82,11 +102,12 @@
 		F1F5A83020436AE1000C6983 /* Ketchup */ = {
 			isa = PBXGroup;
 			children = (
+				F18C48A9204389AD00DCAA24 /* JSONTransforms */,
+				F18C48A6204383D700DCAA24 /* Test Files */,
 				F1F5A84420436B53000C6983 /* View Controllers */,
 				F1F5A84720437522000C6983 /* Views */,
 				F1F5A84320436B4D000C6983 /* Models */,
 				F1F5A83120436AE1000C6983 /* AppDelegate.swift */,
-				F1F5A83520436AE1000C6983 /* Main.storyboard */,
 				F1F5A83820436AE1000C6983 /* Assets.xcassets */,
 				F1F5A83A20436AE1000C6983 /* LaunchScreen.storyboard */,
 				F1F5A83D20436AE1000C6983 /* Info.plist */,
@@ -98,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F5A84520436CA7000C6983 /* Friend.swift */,
+				F13896622054B4D800554130 /* LoggedInUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,7 +204,7 @@
 			files = (
 				F1F5A83C20436AE1000C6983 /* LaunchScreen.storyboard in Resources */,
 				F1F5A83920436AE1000C6983 /* Assets.xcassets in Resources */,
-				F1F5A83720436AE1000C6983 /* Main.storyboard in Resources */,
+				F18C48A8204383EF00DCAA24 /* Friends.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +256,7 @@
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/FSQCellManifest/FSQCellManifest.framework",
 				"${BUILT_PRODUCTS_DIR}/FSQMessageForwarder/FSQMessageForwarder.framework",
+				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
@@ -245,6 +268,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSQCellManifest.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSQMessageForwarder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
@@ -261,24 +285,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F18C48AB204389BA00DCAA24 /* URLTransform.swift in Sources */,
 				F1F5A84620436CA7000C6983 /* Friend.swift in Sources */,
 				F1F5A83420436AE1000C6983 /* FriendListViewController.swift in Sources */,
 				F1F5A83220436AE1000C6983 /* AppDelegate.swift in Sources */,
 				F1F5A849204377F9000C6983 /* IconTitleSubtitleCell.swift in Sources */,
+				F13896632054B4D800554130 /* LoggedInUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F1F5A83520436AE1000C6983 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F1F5A83620436AE1000C6983 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F1F5A83A20436AE1000C6983 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

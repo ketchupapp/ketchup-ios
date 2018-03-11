@@ -28,7 +28,7 @@ class Friend: Mappable {
     func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
-        lastKetchup <- map["last_ketchup"]
-        avatarURL <- map["avatar_url"]
+        lastKetchup <- (map["last_ketchup"], DateTransform())
+        avatarURL <- (map["avatar"], URLTransform())
     }
 }

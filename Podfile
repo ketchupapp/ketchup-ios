@@ -12,4 +12,5 @@ target 'Ketchup' do
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'PINRemoteImage', '~> 2'
   pod 'FSQCellManifest', '~> 1'
+  pod 'Locksmith', '~> 4.0'
 end

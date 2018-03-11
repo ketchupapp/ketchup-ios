@@ -12,6 +12,8 @@ import Alamofire
 import AlamofireObjectMapper
 import FSQCellManifest
 
+import ObjectMapper
+
 class FriendListViewController: UITableViewController {
 
     var manifest: FSQTableViewCellManifest!
@@ -29,15 +31,32 @@ class FriendListViewController: UITableViewController {
      
         manifest = FSQTableViewCellManifest(delegate: self, plugins: nil, tableView: self.tableView)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        reloadFromTestJSON()
+        reloadFromNetwork()
+    }
 
     func reloadFromNetwork() {
-        let urlString = "ketchupapp.co/friends"
-        Alamofire.request(urlString).responseArray { (response: DataResponse<[Friend]>) in
+        let urlString = "https://ketchupapp.co/friends"
+        LoggedInUser.current?.sessionManager.request(urlString).responseArray { (response: DataResponse<[Friend]>) in
             guard let friends = response.result.value else {
                 return
             }
             self.reloadWithFriends(friends)
         }
+    }
+    
+    func reloadFromTestJSON() {
+        guard let path = Bundle.main.path(forResource: "Friends", ofType: "json"),
+            let contents = try? String(contentsOfFile: path),
+            let friends = Mapper<Friend>().mapArray(JSONString: contents) else {
+            return
+        }
+        reloadWithFriends(friends)
+
     }
     
     func reloadWithFriends(_ friends: [Friend]) {
