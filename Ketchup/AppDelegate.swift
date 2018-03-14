@@ -17,8 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = FriendListViewController()
+        window?.rootViewController = SplashScreenViewController(nibName: nil, bundle: nil)
         window?.makeKeyAndVisible()
+        
+        LoggedInUser.loginFromKeychain { success in
+            if success {
+                self.window?.rootViewController = FriendListViewController()
+            } else {
+                window?.rootViewController = LoginOrSignupViewController(nibName: nil, bundle: nil)
+            }
+        }
+
         return true
     }
 

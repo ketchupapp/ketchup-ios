@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		B69C332B6626423F7AF13C3A /* Pods_Ketchup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2FAD9DEF8506619E5803A9 /* Pods_Ketchup.framework */; };
 		F13896632054B4D800554130 /* LoggedInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13896622054B4D800554130 /* LoggedInUser.swift */; };
+		F13896662054C47600554130 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13896642054C47600554130 /* SplashScreenViewController.swift */; };
+		F13896672054C47600554130 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13896652054C47600554130 /* SplashScreenViewController.xib */; };
+		F138966A2054C48500554130 /* LoginOrSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13896682054C48500554130 /* LoginOrSignupViewController.swift */; };
+		F138966B2054C48500554130 /* LoginOrSignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13896692054C48500554130 /* LoginOrSignupViewController.xib */; };
 		F18C48A8204383EF00DCAA24 /* Friends.json in Resources */ = {isa = PBXBuildFile; fileRef = F18C48A7204383EF00DCAA24 /* Friends.json */; };
 		F18C48AB204389BA00DCAA24 /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C48AA204389BA00DCAA24 /* URLTransform.swift */; };
 		F1F5A83220436AE1000C6983 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F5A83120436AE1000C6983 /* AppDelegate.swift */; };
@@ -23,6 +27,10 @@
 		6BF95C5328A345C731349CA7 /* Pods-Ketchup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ketchup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ketchup/Pods-Ketchup.debug.xcconfig"; sourceTree = "<group>"; };
 		92F8D31CF5B5CF03D0739B19 /* Pods-Ketchup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ketchup.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ketchup/Pods-Ketchup.release.xcconfig"; sourceTree = "<group>"; };
 		F13896622054B4D800554130 /* LoggedInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInUser.swift; sourceTree = "<group>"; };
+		F13896642054C47600554130 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		F13896652054C47600554130 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
+		F13896682054C48500554130 /* LoginOrSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOrSignupViewController.swift; sourceTree = "<group>"; };
+		F13896692054C48500554130 /* LoginOrSignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginOrSignupViewController.xib; sourceTree = "<group>"; };
 		F18C48A7204383EF00DCAA24 /* Friends.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Friends.json; sourceTree = "<group>"; };
 		F18C48AA204389BA00DCAA24 /* URLTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTransform.swift; sourceTree = "<group>"; };
 		F1F5A82E20436AE1000C6983 /* Ketchup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ketchup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +136,10 @@
 			isa = PBXGroup;
 			children = (
 				F1F5A83320436AE1000C6983 /* FriendListViewController.swift */,
+				F13896642054C47600554130 /* SplashScreenViewController.swift */,
+				F13896652054C47600554130 /* SplashScreenViewController.xib */,
+				F13896682054C48500554130 /* LoginOrSignupViewController.swift */,
+				F13896692054C48500554130 /* LoginOrSignupViewController.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -203,7 +215,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1F5A83C20436AE1000C6983 /* LaunchScreen.storyboard in Resources */,
+				F13896672054C47600554130 /* SplashScreenViewController.xib in Resources */,
 				F1F5A83920436AE1000C6983 /* Assets.xcassets in Resources */,
+				F138966B2054C48500554130 /* LoginOrSignupViewController.xib in Resources */,
 				F18C48A8204383EF00DCAA24 /* Friends.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F18C48AB204389BA00DCAA24 /* URLTransform.swift in Sources */,
+				F138966A2054C48500554130 /* LoginOrSignupViewController.swift in Sources */,
 				F1F5A84620436CA7000C6983 /* Friend.swift in Sources */,
+				F13896662054C47600554130 /* SplashScreenViewController.swift in Sources */,
 				F1F5A83420436AE1000C6983 /* FriendListViewController.swift in Sources */,
 				F1F5A83220436AE1000C6983 /* AppDelegate.swift in Sources */,
 				F1F5A849204377F9000C6983 /* IconTitleSubtitleCell.swift in Sources */,
