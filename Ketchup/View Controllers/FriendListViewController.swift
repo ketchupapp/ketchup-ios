@@ -20,6 +20,7 @@ class FriendListViewController: UITableViewController {
     
     init() {
         super.init(style: .plain)
+        self.navigationItem.title = "Ketchup"
     }
     
     required init?(coder aDecoder: NSCoder) {

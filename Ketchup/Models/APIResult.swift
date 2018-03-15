@@ -67,27 +67,3 @@ extension DataRequest {
         }
     }
 }
-
-
-//
-
-
-//
-//
-//extension Result: ImmutableMappable {
-//    public init(map: Map) throws {
-//        if map.JSON["errors"] != nil {
-//            self = .failure(KetchupAPIError.parameterErrors(try map.value("errors")))
-//        } else if map.JSON["error"] != nil {
-//            self = .failure(KetchupAPIError.singleErrorString(try map.value("error")))
-//        } else if let value: Value = try map.value("value") as? Mappable {
-//            self = .success(value)
-//        }
-//    }
-//
-//    public mutating func mapping(map: Map) {
-//        // Unimplemented
-//        // Don't need to ever reverse map this back to json
-//    }
-//}
-
