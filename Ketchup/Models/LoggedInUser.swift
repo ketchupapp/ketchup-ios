@@ -11,21 +11,23 @@ import ObjectMapper
 import Locksmith
 import Alamofire
 
-typealias CompletionBlockWithSuccess = (_ success: Bool) -> ()
+typealias CompletionBlockWithSuccess = (_ success: Bool, _ error: Error?) -> ()
 
-class LoggedInUser: Mappable {
+class LoggedInUser: Mappable, Equatable {
     static let currentUserChangedNotificationKey = Notification.Name("CurrentUserChangedNotificationKey")
     
     static var current: LoggedInUser? {
         didSet {
-            NotificationCenter.default.post(name: currentUserChangedNotificationKey,
-                                            object: nil)
+            if current != oldValue {
+                NotificationCenter.default.post(name: currentUserChangedNotificationKey,
+                                                object: nil)
+            }
         }
     }
     
     static let KeychainAccountKey = "Ketchup"
     
-    var id: String!
+    var id: Int!
     var email: String!
     var authToken: String!
     var isLoggedIn: Bool {
@@ -55,7 +57,7 @@ class LoggedInUser: Mappable {
         guard let keychainData = Locksmith.loadDataForUserAccount(userAccount: KeychainAccountKey),
             let email = keychainData["email"] as? String,
             let password = keychainData["password"] as? String else {
-                onCompletion(false)
+                onCompletion(false, nil)
                 return
         }
         
@@ -86,27 +88,36 @@ class LoggedInUser: Mappable {
             "Content-Type":"application/json",
             "Accept": "application/json"
         ]
+
         Alamofire.request(urlString,
                           method: .post,
                           parameters: parameters,
                           encoding: JSONEncoding.default,
                           headers: headers)
-        Alamofire.request(urlString).responseObject { (response: DataResponse<LoggedInUser>) in
-            guard let user = response.result.value else {
-                onCompletion(false)
-                return
-            }
-            try? Locksmith.saveData(data: emailPasswordDictionary, forUserAccount: KeychainAccountKey)
-            
-            var headers = Alamofire.SessionManager.defaultHTTPHeaders
-            headers["X-User-Email"] = user.email
-            headers["X-User-Token"] = user.authToken
-            headers["Accept"] = "application/json"
-            let configuration = URLSessionConfiguration.default
-            configuration.httpAdditionalHeaders = headers
-            user.sessionManager = Alamofire.SessionManager(configuration: configuration)
-            LoggedInUser.current = user
-            onCompletion(true)
+            .validateKetchupAPI()
+            .responseObject(keyPath: "value") { (response: DataResponse<LoggedInUser>) in
+                switch response.result {
+                case .success(let user):
+                        try? Locksmith.saveData(data: emailPasswordDictionary, forUserAccount: KeychainAccountKey)
+                        
+                        var headers = Alamofire.SessionManager.defaultHTTPHeaders
+                        headers["X-User-Email"] = user.email
+                        headers["X-User-Token"] = user.authToken
+                        headers["Accept"] = "application/json"
+                        let configuration = URLSessionConfiguration.default
+                        configuration.httpAdditionalHeaders = headers
+                        user.sessionManager = Alamofire.SessionManager(configuration: configuration)
+                        LoggedInUser.current = user
+                        onCompletion(true, nil)
+                case .failure(let error):
+                    print(error)
+                    if let data = response.data,
+                        let rawResult = String(data: data, encoding: .utf8) {
+                        print(rawResult)
+                    }
+                    
+                    onCompletion(false, error)
+                }
         }
     }
     
@@ -122,4 +133,8 @@ class LoggedInUser: Mappable {
         try? Locksmith.deleteDataForUserAccount(userAccount: LoggedInUser.KeychainAccountKey)
         LoggedInUser.current = nil
     }
+}
+
+func ==(lhs: LoggedInUser, rhs: LoggedInUser) -> Bool {
+    return lhs.id == rhs.id
 }

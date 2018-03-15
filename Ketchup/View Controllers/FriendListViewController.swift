@@ -41,7 +41,9 @@ class FriendListViewController: UITableViewController {
 
     func reloadFromNetwork() {
         let urlString = "https://ketchupapp.co/friends"
-        LoggedInUser.current?.sessionManager.request(urlString).responseArray { (response: DataResponse<[Friend]>) in
+        LoggedInUser.current?.sessionManager.request(urlString)
+            .validateKetchupAPI()
+            .responseArray(keyPath: "value") { (response: DataResponse<[Friend]>) in
             guard let friends = response.result.value else {
                 return
             }

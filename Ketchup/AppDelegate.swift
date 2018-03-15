@@ -12,23 +12,41 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = SplashScreenViewController(nibName: nil, bundle: nil)
         window?.makeKeyAndVisible()
         
-        LoggedInUser.loginFromKeychain { success in
-            if success {
-                self.window?.rootViewController = FriendListViewController()
-            } else {
-                window?.rootViewController = LoginOrSignupViewController(nibName: nil, bundle: nil)
-            }
+        
+        LoggedInUser.loginFromKeychain { success, _ in
+            self.handleLoggedInUserChanged()
+            
+            // Register to listen for future login changes and swap the root vc automatically when it happens
+            NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(AppDelegate.handleLoggedInUserChanged),
+                                                   name: LoggedInUser.currentUserChangedNotificationKey,
+                                                   object: nil)
         }
 
         return true
+    }
+    
+    @objc func handleLoggedInUserChanged() {
+        if LoggedInUser.current == nil {
+            setRootToLoggedOut()
+        } else {
+            setRootToLoggedIn()
+        }
+    }
+    
+    private func setRootToLoggedIn() {
+        self.window?.rootViewController = UINavigationController(rootViewController: FriendListViewController())
+    }
+    
+    private func setRootToLoggedOut() {
+        self.window?.rootViewController = LoginOrSignupViewController(nibName: nil, bundle: nil)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

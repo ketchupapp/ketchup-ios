@@ -15,6 +15,7 @@
 		F138966B2054C48500554130 /* LoginOrSignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13896692054C48500554130 /* LoginOrSignupViewController.xib */; };
 		F18C48A8204383EF00DCAA24 /* Friends.json in Resources */ = {isa = PBXBuildFile; fileRef = F18C48A7204383EF00DCAA24 /* Friends.json */; };
 		F18C48AB204389BA00DCAA24 /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C48AA204389BA00DCAA24 /* URLTransform.swift */; };
+		F1EE531B2059D16B00C01116 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EE531A2059D16B00C01116 /* APIResult.swift */; };
 		F1F5A83220436AE1000C6983 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F5A83120436AE1000C6983 /* AppDelegate.swift */; };
 		F1F5A83420436AE1000C6983 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F5A83320436AE1000C6983 /* FriendListViewController.swift */; };
 		F1F5A83920436AE1000C6983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F5A83820436AE1000C6983 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		F13896692054C48500554130 /* LoginOrSignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginOrSignupViewController.xib; sourceTree = "<group>"; };
 		F18C48A7204383EF00DCAA24 /* Friends.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Friends.json; sourceTree = "<group>"; };
 		F18C48AA204389BA00DCAA24 /* URLTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTransform.swift; sourceTree = "<group>"; };
+		F1EE531A2059D16B00C01116 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		F1F5A82E20436AE1000C6983 /* Ketchup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ketchup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F5A83120436AE1000C6983 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1F5A83320436AE1000C6983 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				F1F5A84520436CA7000C6983 /* Friend.swift */,
 				F13896622054B4D800554130 /* LoggedInUser.swift */,
+				F1EE531A2059D16B00C01116 /* APIResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -286,6 +290,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -299,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1EE531B2059D16B00C01116 /* APIResult.swift in Sources */,
 				F18C48AB204389BA00DCAA24 /* URLTransform.swift in Sources */,
 				F138966A2054C48500554130 /* LoginOrSignupViewController.swift in Sources */,
 				F1F5A84620436CA7000C6983 /* Friend.swift in Sources */,

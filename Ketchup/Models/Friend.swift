@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 class Friend: Mappable {
-    var id: String!
+    var id: Int!
     var name: String!
     var lastKetchup: Date?
     var avatarURL: URL?
